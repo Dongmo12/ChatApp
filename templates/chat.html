@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!-- Custom css for chat pages -->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/chat_style.css') }}">
+</head>
+<body>
+
+    <nav>
+
+    </nav>
+
+
+    <div id="main-section">
+
+
+        <nav id="sidebar">
+           <h4>ROOMS</h4>
+            {% for room in rooms %}
+
+                <p class="select-room"> {{ room|title }} </p>
+
+            {% endfor %}
+        </nav>
+
+        <div id="rightside-panel">
+
+             <div id="display-message">
+
+             </div>
+
+             <div id="input-area">
+
+                <input type = "text" id="user_message" placeholder="Type your message right here!" autocomplete="off">
+                <button type="button" id="send_message">SEND</button>
+             </div>
+
+       </div>
+
+    </div>
+
+    <script type="text/javascript">
+        const username = `{{ username }}`;
+    </script>
+
+    <!-- socket io JS -->
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+
+<script src="{{url_for('static', filename='scripts/socketio.js')}}">  </script>
+</body>
+</html>

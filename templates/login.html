@@ -1,0 +1,27 @@
+{% from 'form-helper.html' import displayField %}
+
+{% extends "prelogin-layout.html" %}
+
+{% block title %} Login Form {% endblock %}
+
+ {% block content %}
+    <h1> Cameroonian Avengers Chat Application  </h1>
+    <h2> Login in  </h2>
+    <p> Enter your username and your password to enter your sessions </p>
+
+
+    <form action="{{ url_for('login')}}", method="POST">
+
+          {{ displayField(form.username, 'Username', autocomplete="off", autofocus=true)}}
+          {{ displayField(form.password, 'Password')}}
+
+
+         <div>
+             {{ form.submit_button }}
+         </div>
+
+         {{ form.csrf_token }}
+
+     </form>
+
+   {% endblock %}
